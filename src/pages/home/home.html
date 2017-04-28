@@ -1,0 +1,43 @@
+<form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+  <ion-list> 
+    <ion-item>
+      <ion-label stacked>NOMBRE</ion-label>
+      <ion-input formControlName="NOMBRE" type="text" placeholder="NOMBRE"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('NOMBRE').errors && myForm.get('NOMBRE').dirty">
+      <p *ngIf="myForm.get('name').hasError('required')">Field is required</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>APELLIDO MATERNO:</ion-label>
+      <ion-input formControlName="APELLIDOM" type="text" placeholder="APELLIDOM"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('APELLIDOM').errors && myForm.get('APELLIDOM').dirty">
+      <p *ngIf="myForm.get('company').hasError('required')">CAMPO VACIO</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>APELLIDO PATERNO</ion-label>
+      <ion-input formControlName="APELLIDOP" type="text" placeholder="APELLIDOP
+      "></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('APELLIDOP').errors && myForm.get('APELLIDOP').dirty">
+      <p *ngIf="myForm.get('email').hasError('required')">CAMPO VACIO</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>FECHA</ion-label>
+      <ion-input formControlName="FECHA" type="text" placeholder="FECHA"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('FECHA').errors && myForm.get('FECHA').dirty">
+      <p *ngIf="myForm.get('age').hasError('required')">El formato debe ser AAAA/MM/DD</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>RFC</ion-label>
+      <ion-input formControlName="RFC" type="text" placeholder="RFC"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('RFC').errors && myForm.get('RFC').dirty">
+      <p *ngIf="myForm.get('url').hasError('required')">EL FORMATO DEBE SER:</p>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block type="submit" [disabled]="myForm.invalid">Guardar</button>
+  </div>
+</form>
